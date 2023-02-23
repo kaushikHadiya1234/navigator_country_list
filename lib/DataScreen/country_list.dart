@@ -51,14 +51,14 @@ class _CountryListState extends State<CountryList> {
   List Images = [
     "Assets/Image/india.jpg",
     "Assets/Image/nepal.jpg",
-    "Assets/Image/singapore.jpg",
+    "Assets/Image/singapor.jpg",
     "Assets/Image/spain.jpg",
     "Assets/Image/togo.jpg",
     "Assets/Image/us.jpg",
     "Assets/Image/algeria.jpg",
     "Assets/Image/angola.jpg",
     "Assets/Image/arm.jpg",
-    "Assets/Image/australia.jpg",
+    "Assets/Image/austalia.jpg",
   ];
 
   List d2 = [
@@ -73,7 +73,6 @@ class _CountryListState extends State<CountryList> {
     "Armenia is a unitary, multi-party, democratic nation-state with an ancient cultural heritage. The first Armenian state of Urartu was established in 860 BC, and by the 6th century BC it was replaced by the Satrapy of Armenia. ",
     "Austria emerged from the remnants of the Eastern and Hungarian March at the end of the first millennium. Originally a margraviate of Bavaria, it developed into a duchy of the Holy Roman Empire in 1156 and was later made an archduchy in 1453"
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,17 +97,9 @@ class _CountryListState extends State<CountryList> {
                 .map(
                   (e) => InkWell(
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => DashScreen(
-                              l1[e.key].toString(),
-                              Images[e.key],
-                              d2[e.key].toString(),
-                              // d2[e.key].toString(),
-                            ),
-                          ),
-                        );
+                        List f = [l1[e.key],Images[e.key],d2[e.key]];
+
+                       Navigator.pushNamed(context,"DashScreen",arguments: f);
                       },
                       child: CountryList(l1[e.key],
                           e.key % 2 == 0 ? Colors.red : Colors.yellow)),

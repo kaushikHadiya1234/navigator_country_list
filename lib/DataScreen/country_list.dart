@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:navigator/DataScreen/countryModal.dart';
 import 'package:navigator/DataScreen/data.dart';
 
 class CountryList extends StatefulWidget {
@@ -10,7 +11,7 @@ class CountryList extends StatefulWidget {
 
 class _CountryListState extends State<CountryList> {
   int i = 0;
-  List<String> l1 = [
+  List l1 = [
     "🇮🇳 India",
     "🇳🇵 Nepal",
     "🇸🇬 Singapore",
@@ -22,31 +23,6 @@ class _CountryListState extends State<CountryList> {
     "🇦🇲 Armenia",
     "🇦🇺 Australia",
   ];
-
-  // List color1 = [
-  //
-  //   Colors.purpleAccent,
-  //   Colors.red,
-  //   Colors.brown,
-  //   Colors.pink,
-  //   Colors.purpleAccent,
-  //   Colors.red,
-  //   Colors.brown,
-  //   Colors.pink,
-  //   Colors.purpleAccent,
-  //   Colors.red,
-  //   Colors.brown,
-  //   Colors.pink,
-  //   Colors.purpleAccent,
-  //   Colors.red,
-  //   Colors.brown,
-  //   Colors.pink,
-  //   Colors.purpleAccent,
-  //   Colors.red,
-  //   Colors.brown,
-  //   Colors.pink,
-  //
-  // ];
 
   List Images = [
     "Assets/Image/india.jpg",
@@ -97,9 +73,8 @@ class _CountryListState extends State<CountryList> {
                 .map(
                   (e) => InkWell(
                       onTap: () {
-                        List f = [l1[e.key],Images[e.key],d2[e.key]];
-
-                       Navigator.pushNamed(context,"DashScreen",arguments: f);
+                        CountryModal c1 = CountryModal(l1:  l1[e.key], Images: Images[e.key], d2:  d2[e.key]);
+                       Navigator.pushNamed(context,"DashScreen",arguments: c1);
                       },
                       child: CountryList(l1[e.key],
                           e.key % 2 == 0 ? Colors.red : Colors.yellow)),
